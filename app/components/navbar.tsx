@@ -6,50 +6,61 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div>
-      {/* Botón para abrir/cerrar el menú */}
-      <button
-        onClick={() => setIsOpen(!isOpen)} // Cambia el estado de isOpen
-        className="md:hidden p-4 text-gray-700 dark:text-gray-200"
-      >
-        ☰ {/* Icono de hamburguesa */}
-      </button>
+    <header className="bg-rose-600 sticky top-0 z-50">
+      <div className="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Global" className="flex items-center gap-6 text-sm">
+        <a className="text-white transition px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-none dark:text-gray-200 hover:border-b-2 hover:border-white-700 md:mx-2" href="#" > Inicio </a>
+        <a className="text-white transition px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-none dark:text-gray-200 hover:border-b-2 hover:border-white-700 md:mx-2" href="#" > About </a>
+        <a className="text-white transition px-2.5 py-2 text-gray-700 transition-colors duration-300 transform rounded-none dark:text-gray-200 hover:border-b-2 hover:border-white-700 md:mx-2" href="#" > Contacto </a>
+        </nav>
 
-      {/* Menú de navegación que se oculta/abre con la animación */}
-      <div
-        className={`absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 
-        ${isOpen ? "translate-x-0 opacity-100" : "opacity-0 -translate-x-full"} 
-        md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center`}
-      >
-        <div className="flex flex-col md:flex-row md:mx-6">
-          <Link
-            className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
-            to="#"
+        <div className="relative ml-auto mr-4"> 
+          <label htmlFor="Search" className="sr-only">Search</label>
+
+          <input
+            type="text"
+            id="Search"
+            placeholder="Buscar"
+            className="w-full rounded-md py-2 pe-10 ps-4 shadow-sm sm:text-sm text-black bg-white focus:outline-none"
+          />
+
+          <span className="absolute inset-y-0 end-0 grid w-10 place-content-center">
+            <button type="button" className="text-gray-600 hover:text-gray-700">
+              <span className="sr-only">Search</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="size-4"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                />
+              </svg>
+            </button>
+          </span>
+        </div>
+
+        {/* Botones separados */}
+        <div className="flex items-center gap-4"> {/* `gap-4` ajusta la separación */}
+          <a
+            className="flex items-center justify-center block w-full border-2 border-rose-700 bg-rose-700  rounded px-6 py-2 text-sm font-medium text-white shadow hover:bg-rose-500 hover:border-rose-500 active:bg-rose-600  active:border-rose-600 sm:w-auto"
+            href="#"
           >
-            Hombre
-          </Link>
-          <Link
-            className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
-            to="#"
+            Login
+          </a>
+          <a
+            className="flex items-center justify-center hidden border-2 border-gray-100 rounded-md bg-gray-100 px-6 py-2 text-sm font-medium text-black transition hover:bg-white hover:border-white sm:block active:bg-gray-300 active:border-gray-300"
+            href="#"
           >
-            Mujer
-          </Link>
-          <Link
-            className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
-            to="#"
-          >
-            Niños
-          </Link>
-          <Link
-            className="my-2 text-gray-700 transition-colors duration-300 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
-            to="#"
-          >
-            About
-          </Link>
+            Register
+          </a>
         </div>
       </div>
-    </div>
+    </header>
   );
 }
-
-
